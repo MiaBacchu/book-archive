@@ -1,20 +1,30 @@
 // load the data
 const loadBooks = () => {
-    const searchText = document.getElementById('input').value
-    fetch(`https://openlibrary.org/search.json?q=${searchText}`)
-        .then(res => res.json())
-        .then(data => displayBooks(data))
-    document.getElementById('input').value = ''
+    const searchText = document.getElementById('input').value;
+    // for empty search
+    if (searchText === '') {
+        const resultFound = document.getElementById('result-found')
+        resultFound.innerHTML = `Please search any book for result`
+        document.getElementById('books-container').textContent = ''
+    }
+    // for search books
+    else {
+        fetch(`https://openlibrary.org/search.json?q=${searchText}`)
+            .then(res => res.json())
+            .then(data => displayBooks(data))
+    }
 }
 // showing result
 const displayBooks = (books) => {
     // showing no result found
     const resultFound = document.getElementById('result-found')
     if (books.numFound === 0) {
-        resultFound.innerHTML = `No Result Found`
+        resultFound.innerHTML = `No Result Found for '${document.getElementById('input').value}'`
+        document.getElementById('input').value = ''
     }
     else {
-        resultFound.innerHTML = `Here ${books.docs.length} books are shown from ${books.numFound} result.`
+        resultFound.innerHTML = `Here ${books.docs.length} books are shown from ${books.numFound} result for '${document.getElementById('input').value}'`
+        document.getElementById('input').value = ''
     }
     // showing books details in website
     const booksDiv = document.getElementById('books-container')
