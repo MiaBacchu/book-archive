@@ -14,7 +14,7 @@ const displayBooks = (books) => {
         resultFound.innerHTML = `No Result Found`
     }
     else {
-        resultFound.innerHTML = `Here ${books.docs.length} books are showing from ${books.numFound} result.`
+        resultFound.innerHTML = `Here ${books.docs.length} books are shown from ${books.numFound} result.`
     }
     // showing books details in website
     const booksDiv = document.getElementById('books-container')
@@ -27,7 +27,7 @@ const displayBooks = (books) => {
                     <h3>Name: ${book.title}</h3>
                     <h4>Author Name: ${book.author_name}</h4>
                     <h4>First Publisher: ${book.publisher}</h4>
-                    <h3>Publish: ${book.publish_date}</h3>`
+                    <h3>First Publish: ${book.first_publish_year}</h3>`
         booksDiv.appendChild(div)
     })
 }

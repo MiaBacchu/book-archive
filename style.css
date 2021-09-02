@@ -3,9 +3,8 @@ h1{text-align: center;}
 
 #flexer{display: flex;
     align-items: center;
-width: 80%;
-justify-content: center;
-margin-bottom: 3rem;}
+width: 60%;
+margin: 3rem auto;}
 
 #input{width: 50rem;
     height: 2rem;
