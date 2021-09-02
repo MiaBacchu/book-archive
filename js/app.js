@@ -5,7 +5,6 @@ const loadBooks = () => {
     if (searchText === '') {
         const resultFound = document.getElementById('result-found')
         resultFound.innerHTML = `Please search any book for result`
-        document.getElementById('books-container').textContent = ''
     }
     // for search books
     else {
